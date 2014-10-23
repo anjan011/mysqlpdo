@@ -2,7 +2,7 @@
 @import url('phpdocumentor-clean-icons/style.css');
 
 body {
-    padding-top:      40px;
+    
     background-color: #333333;
 }
 
@@ -343,7 +343,7 @@ body .modal {
 @media (min-width: 767px) {
     .sidebar {
         position:         fixed;
-        top:              40px;
+        top:              0px;
         bottom:           0;
         background-color: #f3f3f3;
         left:             0;

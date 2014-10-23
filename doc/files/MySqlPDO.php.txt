@@ -95,10 +95,43 @@
             return new MySqlPDO();
         }
 
-        public function ExecuteNonquery($sql)
+        /**
+         * Instructs MySql to disable/enable foreign key check
+         *
+         * <p>
+         * If foreign key check is disabled, records from parent table can be deleted,
+         * even if dependent rows in child tables exist. But this will create orphaned
+         * records.
+         * </p>
+         *
+         * @param bool $disabled
+         *
+         * @return int
+         */
+
+        public function DisableForeignKeyCheck($disabled = true) {
+
+            $disabled = $disabled ? 0 : 1;
+
+            $sql = "SET FOREIGN_KEY_CHECKS = $disabled";
+
+            return $this->ExecuteNonQuery($sql);
+
+        }
+
+        /**
+         * Execute a DDL statement (E.g. insert, update,delete,truncate) and returns
+         * affected row number
+         *
+         * @param string $sql The sql query
+         *
+         * @return int
+         */
+
+        public function ExecuteNonQuery($sql)
         {
 
-            //$this->_oPdo->setAttribute()
+            return $this->_oPdo->exec($sql);
 
         }
 
@@ -194,20 +227,20 @@
          * returns the data for a particular column as a simple php array with numeric index.
          * </p>
          *
-         * @param string    $sql            The SQL query
-         * @param array     $bind           Values for query parameters
-         * @param int       $colIndex       the index of column [Default: 0]
-         * @param array     $pdoOptions     PDO driver options
+         * @param string $sql The SQL query
+         * @param array $bind Values for query parameters
+         * @param int $colIndex the index of column [Default: 0]
+         * @param array $pdoOptions PDO driver options
          *
          * @return array
          */
 
-        public function GetColumn($sql, $bind = array(),$colIndex = 0, $pdoOptions = array())
+        public function GetColumn($sql, $bind = array(), $colIndex = 0, $pdoOptions = array())
         {
 
-            $colIndex = (int)$colIndex;
+            $colIndex = (int) $colIndex;
 
-            if($colIndex < 0) {
+            if ( $colIndex < 0 ) {
                 $colIndex = 0;
             }
 
@@ -215,7 +248,7 @@
 
             $this->_oLastStatement->execute($bind);
 
-            $rows = $this->_oLastStatement->fetchAll(PDO::FETCH_COLUMN,$colIndex);
+            $rows = $this->_oLastStatement->fetchAll(PDO::FETCH_COLUMN, $colIndex);
 
             $this->_oLastStatement->closeCursor();
 
@@ -257,21 +290,22 @@
          * This function executes the and creates an associative array with key being
          * the values from first column and value being the values from second column.
          * If there are multiple different values for a single value in first column,
-         * only the last value fron second column will be available.
+         * only the last value from second column will be available.
          * </p>
          *
          * <p>
          * The SQL query passed to this function, MUST have EXACTLY 2 columns.
          * </p>
          *
-         * @param string    $sql        The sql query
-         * @param array     $bind       Query parameter values
-         * @param array     $pdoOptions PDO Driver options
+         * @param string $sql The sql query
+         * @param array $bind Query parameter values
+         * @param array $pdoOptions PDO Driver options
          *
          * @return array
          */
 
-        public function GetKeyValuePairs($sql,$bind = array(),$pdoOptions = array()) {
+        public function GetKeyValuePairs($sql, $bind = array(), $pdoOptions = array())
+        {
 
             $this->_oLastStatement = $this->_oPdo->prepare($sql, $pdoOptions);
 
@@ -306,21 +340,22 @@
          *
          * @see MySqlPDO::GetObjectList() GetObjectList()
          *
-         * @param string    $sql            The sql query to be used in prepared statement.
-         * @param array     $bind           The parameter values for the query.
-         * @param string    $className      The PHP class name. The class must be defined.
-         * @param array     $ctorArgs       If the class constructor requires parameters, pass here.
-         * @param array     $pdoOptions     Extra PDO driver options.
+         * @param string $sql The sql query to be used in prepared statement.
+         * @param array $bind The parameter values for the query.
+         * @param string $className The PHP class name. The class must be defined.
+         * @param array $ctorArgs If the class constructor requires parameters, pass here.
+         * @param array $pdoOptions Extra PDO driver options.
          *
          * @return object|null Returns null if record set is empty.
          */
 
-        public function GetObject($sql,$bind = array(),$className = 'stdClass',$ctorArgs = array(),$pdoOptions = array()) {
+        public function GetObject($sql, $bind = array(), $className = 'stdClass', $ctorArgs = array(), $pdoOptions = array())
+        {
 
-            $list = $this->GetObjectList($sql,$bind,$className,$ctorArgs,$pdoOptions);
+            $list = $this->GetObjectList($sql, $bind, $className, $ctorArgs, $pdoOptions);
 
-            if(empty($list)) {
-                return null;
+            if ( empty($list) ) {
+                return NULL;
             }
 
             return current($list);
@@ -342,22 +377,23 @@
          *
          * @example phpdoc-examples/get_object_list.php
          *
-         * @param string    $sql            The sql query to be used in prepared statement.
-         * @param array     $bind           The parameter values for the query.
-         * @param string    $className      The PHP class name. The class must be defined.
-         * @param array     $ctorArgs       If the class constructor requires parameters, pass here.
-         * @param array     $pdoOptions     Extra PDO driver options.
+         * @param string $sql The sql query to be used in prepared statement.
+         * @param array $bind The parameter values for the query.
+         * @param string $className The PHP class name. The class must be defined.
+         * @param array $ctorArgs If the class constructor requires parameters, pass here.
+         * @param array $pdoOptions Extra PDO driver options.
          *
          * @return array
          */
 
-        public function GetObjectList($sql,$bind = array(),$className = 'stdClass',$ctorArgs = array(),$pdoOptions = array()) {
+        public function GetObjectList($sql, $bind = array(), $className = 'stdClass', $ctorArgs = array(), $pdoOptions = array())
+        {
 
             $this->_oLastStatement = $this->_oPdo->prepare($sql, $pdoOptions);
 
             $this->_oLastStatement->execute($bind);
 
-            $rows = $this->_oLastStatement->fetchAll(PDO::FETCH_CLASS,$className,$ctorArgs);
+            $rows = $this->_oLastStatement->fetchAll(PDO::FETCH_CLASS, $className, $ctorArgs);
 
             $this->_oLastStatement->closeCursor();
 
@@ -420,16 +456,17 @@
          * and loop through the result set using PDOStatement::fetch() method.
          * </p>
          *
-         * @param string    $query          The sql query
-         * @param array     $bind           Query paramater values
-         * @param array     $pdoOptions     PDO driver options
+         * @param string $query The sql query
+         * @param array $bind Query paramater values
+         * @param array $pdoOptions PDO driver options
          *
          * @return PDOStatement
          */
 
-        public function Query($query, $bind = array(),$pdoOptions = array()) {
+        public function Query($query, $bind = array(), $pdoOptions = array())
+        {
 
-            $this->_oLastStatement = $this->_oPdo->prepare($query,$pdoOptions);
+            $this->_oLastStatement = $this->_oPdo->prepare($query, $pdoOptions);
 
             $this->_oLastStatement->execute($bind);
 
@@ -499,5 +536,33 @@
             $this->_oPdo->setAttribute(PDO::ATTR_ERRMODE, $mode);
         }
 
+
+        /**
+         * Truncate a table or empties the table
+         *
+         * <p>
+         * This will will attempt to empty the table and reset auto inc. counter to 0. but
+         * if any foreign key check fails, the truncate would stop at that row. If you need
+         * to bypass this foreign key check, you can use MySqlPDO::DisableForeignKeyCheck()
+         * </p>
+         *
+         * @see MySqlPDO::DisableForeignKeyCheck() DisableForeignKeyCheck()
+         *
+         * @param string $tableName The table name
+         *
+         * @return bool
+         */
+
+        public function TruncateTable($tableName) {
+
+            $tableName = trim($tableName);
+
+            if($tableName == '') {
+                return false;
+            }
+
+            return $this->ExecuteNonQuery("truncate $tableName");
+
+        }
 
     }

@@ -78,7 +78,7 @@
 <body>
 
 <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
+    <div class="navbar-inner" style="display:none;">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <i class="icon-ellipsis-vertical"></i>
@@ -106,7 +106,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">2</span>
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
@@ -136,10 +136,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1465272114"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1240474719"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1465272114" class="accordion-body collapse in">
+            <div id="namespace-1240474719" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -184,7 +184,8 @@
                             <section class="span4">
                                                                     <a href="../classes/MySqlPDO.html#method_Connect" class="">Connect()</a><br />
                                                                     <a href="../classes/MySqlPDO.html#method_CreateNewInstance" class="">CreateNewInstance()</a><br />
-                                                                    <a href="../classes/MySqlPDO.html#method_ExecuteNonquery" class="">ExecuteNonquery()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_DisableForeignKeyCheck" class="">DisableForeignKeyCheck()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_ExecuteNonQuery" class="">ExecuteNonQuery()</a><br />
                                                                     <a href="../classes/MySqlPDO.html#method_GetArray" class="">GetArray()</a><br />
                                                                     <a href="../classes/MySqlPDO.html#method_GetArrayList" class="">GetArrayList()</a><br />
                                                                     <a href="../classes/MySqlPDO.html#method_GetColumn" class="">GetColumn()</a><br />
@@ -199,6 +200,7 @@
                                                                     <a href="../classes/MySqlPDO.html#method_SetArrayFetchMode" class="">SetArrayFetchMode()</a><br />
                                                                     <a href="../classes/MySqlPDO.html#method_SetConnection" class="">SetConnection()</a><br />
                                                                     <a href="../classes/MySqlPDO.html#method_SetErrorMode" class="">SetErrorMode()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_TruncateTable" class="">TruncateTable()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <em>No public properties found</em>
@@ -443,25 +445,68 @@
 
                                     <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_ExecuteNonquery" name="method_ExecuteNonquery" class="anchor"></a>
+            <a id="method_DisableForeignKeyCheck" name="method_DisableForeignKeyCheck" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">ExecuteNonquery()</h3>
+                <h3 class="public ">DisableForeignKeyCheck()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">ExecuteNonquery(  <span class="argument">$sql</span>) </pre>
-                <p><em></em></p>
-                
+                <pre class="signature" style="margin-right: 54px;">DisableForeignKeyCheck(boolean  <span class="argument">$disabled = true</span>) : integer</pre>
+                <p><em>Instructs MySql to disable/enable foreign key check</em></p>
+                <p>
+If foreign key check is disabled, records from parent table can be deleted,
+even if dependent rows in child tables exist. But this will create orphaned
+records.
+</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td></td>
-                                <td>$sql </td>
+                                <td>boolean</td>
+                                <td>$disabled </td>
                                 <td></td>
                             </tr>
                                             </table>
                 
                 
-                				
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ExecuteNonQuery" name="method_ExecuteNonQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ExecuteNonQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ExecuteNonQuery(string  <span class="argument">$sql</span>) : integer</pre>
+                <p><em>Execute a DDL statement (E.g. insert, update,delete,truncate) and returns
+affected row number</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The sql query</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                    				
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -741,7 +786,7 @@ returns the data for a particular column as a simple php array with numeric inde
 This function executes the and creates an associative array with key being
 the values from first column and value being the values from second column.
 If there are multiple different values for a single value in first column,
-only the last value fron second column will be available.
+only the last value from second column will be available.
 </p>
 <p>
 The SQL query passed to this function, MUST have EXACTLY 2 columns.
@@ -1200,6 +1245,48 @@ just silently ignore the error and pretend no data was returned.</em></p>
         </aside>
     </div>
 
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_TruncateTable" name="method_TruncateTable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">TruncateTable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">TruncateTable(string  <span class="argument">$tableName</span>) : boolean</pre>
+                <p><em>Truncate a table or empties the table</em></p>
+                <p>
+This will will attempt to empty the table and reset auto inc. counter to 0. but
+if any foreign key check fails, the truncate would stop at that row. If you need
+to bypass this foreign key check, you can use MySqlPDO::DisableForeignKeyCheck()
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tableName </td>
+                                <td><p>The table name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/MySqlPDO.html#method_DisableForeignKeyCheck"><span class="namespace-wrapper">DisableForeignKeyCheck()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
                                                     <div class="row-fluid">
         <div class="span8 content class">
             <a id="method___construct" name="method___construct" class="anchor"></a>
@@ -1239,7 +1326,7 @@ just silently ignore the error and pretend no data was returned.</em></p>
         </div>
     </div>
 
-    <footer class="row-fluid">
+    <footer class="row-fluid" style="display:none;">
         <section class="span10 offset2">
             <section class="row-fluid">
                 <section class="span10 offset1">
@@ -1275,7 +1362,7 @@ just silently ignore the error and pretend no data was returned.</em></p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on October 23rd, 2014 at 11:58.
+                    on October 23rd, 2014 at 17:16.
                 </section>
             </section>
         </section>

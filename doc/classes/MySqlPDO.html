@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1465272114"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1465272114" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MySqlPDO.html">MySqlPDO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>MySqlPDO</h1>
+                    <p><em>MySqlPDO: A wrapper and utility class using PDO (MySQL)</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/MySqlPDO.html#method_Connect" class="">Connect()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_CreateNewInstance" class="">CreateNewInstance()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_ExecuteNonquery" class="">ExecuteNonquery()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetArray" class="">GetArray()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetArrayList" class="">GetArrayList()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetColumn" class="">GetColumn()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetConnection" class="">GetConnection()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetInstance" class="">GetInstance()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetKeyValuePairs" class="">GetKeyValuePairs()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetLastStatement" class="">GetLastStatement()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetObject" class="">GetObject()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_GetObjectList" class="">GetObjectList()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_InterpolateQuery" class="">InterpolateQuery()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_Query" class="">Query()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_SetArrayFetchMode" class="">SetArrayFetchMode()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_SetConnection" class="">SetConnection()</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#method_SetErrorMode" class="">SetErrorMode()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/MySqlPDO.html#method___construct" class="">__construct()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MySqlPDO.html#property__oDb" class="">$_oDb</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#property__oLastStatement" class="">$_oLastStatement</a><br />
+                                                                    <a href="../classes/MySqlPDO.html#property__oPdo" class="">$_oPdo</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/MySqlPDO.html"><div class="path-wrapper">MySqlPDO.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\MySqlPDO</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Anjan Bhowmik <a href="mailto:anjan011@gmail.com">anjan011@gmail.com</a></p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__oDb" name="property__oDb" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_oDb</h3>
+                <pre class="signature">$_oDb : \MySqlPDO</pre>
+                <p><em>Private static copy for singleton system</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/MySqlPDO.html">\MySqlPDO</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__oLastStatement" name="property__oLastStatement" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_oLastStatement</h3>
+                <pre class="signature">$_oLastStatement : \PDOStatement</pre>
+                <p><em>Last executed statement</em></p>
+                
+
+                                <h4>Type</h4>
+                \PDOStatement
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__oPdo" name="property__oPdo" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$_oPdo</h3>
+                <pre class="signature">$_oPdo : \PDO</pre>
+                <p><em>Underlying PDO object</em></p>
+                
+
+                                <h4>Type</h4>
+                \PDO
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_Connect" name="method_Connect" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">Connect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">Connect(string  <span class="argument">$database = &#039;&#039;</span>, string  <span class="argument">$user = &#039;root&#039;</span>, string  <span class="argument">$password = &#039;&#039;</span>, string  <span class="argument">$host = &#039;localhost&#039;</span>, integer  <span class="argument">$port = 3306</span>, array  <span class="argument">$pdoOptions = array()</span>) </pre>
+                <p><em>Connect to database with given info</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$database </td>
+                                <td><p>Database Name</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$user </td>
+                                <td><p>User Name</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$password </td>
+                                <td><p>The Password</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$host </td>
+                                <td><p>MySQL Server name [default: localhost]</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$port </td>
+                                <td><p>Port number [default: 3306]</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>PDO Driver options, if required</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_CreateNewInstance" name="method_CreateNewInstance" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">CreateNewInstance()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">CreateNewInstance() : \MySqlPDO</pre>
+                <p><em>Create a new instance. for situations when u need a different connection</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/MySqlPDO.html">\MySqlPDO</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ExecuteNonquery" name="method_ExecuteNonquery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ExecuteNonquery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ExecuteNonquery(  <span class="argument">$sql</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sql </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetArray" name="method_GetArray" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetArray()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetArray(string  <span class="argument">$sql</span>, array  <span class="argument">$bind = array()</span>, array  <span class="argument">$pdoOptions = array()</span>) : array</pre>
+                <p><em>Executes a SELECT query and gets first row of result as array</em></p>
+                <p>
+This function works similarly as <b>GetArrayList</b> taking sql query
+and bound parameter values (if any). The difference is it only returns
+the first row. Use this when you are looking for just one record.
+</p>
+<p>
+The array fetch mode can be set using <b>SetArrayFetchMode()</b> to be
+associative, numeric or both.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The sql statement. It will be prepared</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>The parameters to be bound (if any)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>Extra PDO driver options</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                                                            <h4>Examples</h4>
+                                                                <h5></h5>
+                        <pre class="pre-scrollable">&lt;?php
+
+    $pdo = MySqlPDO::GetInstance();
+
+    $sql = &quot;select name,email from users where email = ?&quot;;
+
+    $bind = array(&quot;anjan011@gmail.com&quot;);
+
+    $row = $pdo-&gt;GetArray($sql,$bind);
+
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/MySqlPDO.html#method_GetArrayList"><span class="namespace-wrapper">GetArrayList()</span></a></dd>
+                                            <dd><a href="../classes/MySqlPDO.html#method_SetArrayFetchMode"><span class="namespace-wrapper">SetArrayFetchMode()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetArrayList" name="method_GetArrayList" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetArrayList()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetArrayList(string  <span class="argument">$sql</span>, array  <span class="argument">$bind = array()</span>, array  <span class="argument">$pdoOptions = array()</span>) : array</pre>
+                <p><em>Executes a SELECT query and gets result as list of array</em></p>
+                <p>
+Use this function to execute select queries and get result data as list
+of array. The sql statement is executed as prepared statement. the <b>$bind</b>
+param lets you to pass the values for parameters.
+</p>
+<p>
+If you only need the first row from result set as array, use <b>GetArray()</b> instead.
+</p>
+<p>
+The array fetch mode can be set using <b>SetArrayFetchMode()</b> to be
+associative, numeric or both.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The sql statement. It will be prepared</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>The parameters to be bound (if any)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>Extra PDO driver options</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                                                            <h4>Examples</h4>
+                                                                <h5></h5>
+                        <pre class="pre-scrollable">&lt;?php
+
+    $pdo = MySqlPDO::GetInstance();
+
+    $sql = &quot;select name,email from users where email like ?&quot;;
+
+    $bind = array(&quot;%anjan011%&quot;);
+
+    $results = $pdo-&gt;GetArrayList($sql,$bind);
+
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/MySqlPDO.html#method_GetArray"><span class="namespace-wrapper">GetArray()</span></a></dd>
+                                            <dd><a href="../classes/MySqlPDO.html#method_SetArrayFetchMode"><span class="namespace-wrapper">SetArrayFetchMode()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetColumn" name="method_GetColumn" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetColumn()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetColumn(string  <span class="argument">$sql</span>, array  <span class="argument">$bind = array()</span>, integer  <span class="argument">$colIndex</span>, array  <span class="argument">$pdoOptions = array()</span>) : array</pre>
+                <p><em>Execute the query and get a column of data</em></p>
+                <p>
+The function executes the query and instead of returning rows of data set, it simply
+returns the data for a particular column as a simple php array with numeric index.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The SQL query</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>Values for query parameters</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$colIndex </td>
+                                <td><p>the index of column [Default: 0]</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>PDO driver options</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetConnection" name="method_GetConnection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetConnection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetConnection() : \PDO</pre>
+                <p><em>Returns the underlying PDO object</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \PDO
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetInstance" name="method_GetInstance" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetInstance()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetInstance() : \MySqlPDO</pre>
+                <p><em>Get instance in singleton style</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/MySqlPDO.html">\MySqlPDO</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetKeyValuePairs" name="method_GetKeyValuePairs" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetKeyValuePairs()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetKeyValuePairs(string  <span class="argument">$sql</span>, array  <span class="argument">$bind = array()</span>, array  <span class="argument">$pdoOptions = array()</span>) : array</pre>
+                <p><em>Execute query and get key/value pairs</em></p>
+                <p>
+This function executes the and creates an associative array with key being
+the values from first column and value being the values from second column.
+If there are multiple different values for a single value in first column,
+only the last value fron second column will be available.
+</p>
+<p>
+The SQL query passed to this function, MUST have EXACTLY 2 columns.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The sql query</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>Query parameter values</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>PDO Driver options</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetLastStatement" name="method_GetLastStatement" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetLastStatement()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetLastStatement() : \PDOStatement</pre>
+                <p><em>Get last statement object executed</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \PDOStatement
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetObject" name="method_GetObject" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetObject()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetObject(string  <span class="argument">$sql</span>, array  <span class="argument">$bind = array()</span>, string  <span class="argument">$className = &#039;stdClass&#039;</span>, array  <span class="argument">$ctorArgs = array()</span>, array  <span class="argument">$pdoOptions = array()</span>) : object|null</pre>
+                <p><em>Executes the sql query and get the first row as object</em></p>
+                <p>
+It is similar to <b>GetObjectList()</b>, the difference is that it only returns
+the first row as object.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The sql query to be used in prepared statement.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>The parameter values for the query.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$className </td>
+                                <td><p>The PHP class name. The class must be defined.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$ctorArgs </td>
+                                <td><p>If the class constructor requires parameters, pass here.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>Extra PDO driver options.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    object|null
+                                            &mdash; <p>Returns null if record set is empty.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/MySqlPDO.html#method_GetObjectList"><span class="namespace-wrapper">GetObjectList()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_GetObjectList" name="method_GetObjectList" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">GetObjectList()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">GetObjectList(string  <span class="argument">$sql</span>, array  <span class="argument">$bind = array()</span>, string  <span class="argument">$className = &#039;stdClass&#039;</span>, array  <span class="argument">$ctorArgs = array()</span>, array  <span class="argument">$pdoOptions = array()</span>) : array</pre>
+                <p><em>Executes the sql query and get data as list of objects</em></p>
+                <p>
+Like GetArrayList() this function performs the select query, but instead of array, it
+returns a list of objects. If no class name is provided, <b>stdClass</b> is assumed.
+</p>
+<p>
+PDO sets the class variables BEFORE calling the constructor. You can use this to further
+process the data returned if you need
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sql </td>
+                                <td><p>The sql query to be used in prepared statement.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>The parameter values for the query.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$className </td>
+                                <td><p>The PHP class name. The class must be defined.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$ctorArgs </td>
+                                <td><p>If the class constructor requires parameters, pass here.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>Extra PDO driver options.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                                                            <h4>Examples</h4>
+                                                                <h5></h5>
+                        <pre class="pre-scrollable">&lt;?php
+
+    class User {
+
+        public $userName = null;
+        public $userEmail = null;
+
+        public $mailtoLink = null;
+
+        public function __construct($createMailLink) {
+
+            if($createMailLink) {
+                $this-&gt;generateMailtoLink();
+            }
+
+        }
+
+        public function generateMailtoLink() {
+
+            $this-&gt;mailtoLink = &quot;&lt;a href=&#039;mailto:{$this-&gt;userEmail}&#039;&gt;{$this-&gt;userName}&lt;/a&gt;&quot;;
+
+        }
+
+    }
+
+    $pdo = MySqlPDO::GetInstance();
+
+    $sql = &quot;select userName,userEmail from User where userEmail like ?&quot;;
+
+    $bind = array(&quot;%anjan011%&quot;);
+
+    $results = $pdo-&gt;GetObjectList($sql,$bind,&#039;User&#039;,array(true));
+
+    /*
+     Array
+    (
+        [0] =&gt; User Object
+            (
+                [userName] =&gt; Anjan Bhowmik
+                [userEmail] =&gt; anjan011@gmail.com
+                [mailtoLink] =&gt; &lt;a href=&#039;mailto:anjan011@gmail.com&#039;&gt;Anjan Bhowmik&lt;/a&gt;
+            )
+
+    )
+     */
+
+</pre>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_InterpolateQuery" name="method_InterpolateQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">InterpolateQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">InterpolateQuery(string  <span class="argument">$query</span>, array  <span class="argument">$params</span>) : string</pre>
+                <p><em>Generates an actual sql query by resolving bound params</em></p>
+                <p>
+Replaces any parameter placeholders in a query with the value of that
+parameter. Useful for debugging. Assumes anonymous parameters from
+$params are are in the same order as specified in $query. <b>This is a
+slightly modified version of original one</b>
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$query </td>
+                                <td><p>The sql query with parameter placeholders</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>The array of substitution parameters</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>The interpolated query</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://stackoverflow.com/questions/210564/getting-raw-sql-query-string-from-pdo-prepared-statements"><span class="namespace-wrapper">The original article in stackoverflow</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_Query" name="method_Query" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">Query()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">Query(string  <span class="argument">$query</span>, array  <span class="argument">$bind = array()</span>, array  <span class="argument">$pdoOptions = array()</span>) : \PDOStatement</pre>
+                <p><em>Prepares a PDOStatement, calls it&#039;s execute() method and returns it.</em></p>
+                <p>
+This function takes your sql query and parameter values, executes that and
+instead of returning the results itself, it provides you with the PDOStatement
+object.
+</p>
+<p>
+This will be quite useful in situations, where the resul tset is quite
+big and can take up a lot of memory. In this case you can use the PDOStatement
+and loop through the result set using PDOStatement::fetch() method.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$query </td>
+                                <td><p>The sql query</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$bind </td>
+                                <td><p>Query paramater values</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$pdoOptions </td>
+                                <td><p>PDO driver options</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \PDOStatement
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_SetArrayFetchMode" name="method_SetArrayFetchMode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">SetArrayFetchMode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">SetArrayFetchMode(string  <span class="argument">$mode = &#039;assoc&#039;</span>) </pre>
+                <p><em>Sets array fetch mode</em></p>
+                <p>
+While fetching results as array, the fetch mode can be set to one of these three
+values <b>["assoc", "both", "num"]</b>. the default value is <b>"assoc"</b>. This only
+works with <b>GetArray()</b> and <b>GetArrayList()</b> functions.
+</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$mode </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../classes/MySqlPDO.html#method_GetArray"><span class="namespace-wrapper">GetArray()</span></a></dd>
+                                            <dd><a href="../classes/MySqlPDO.html#method_GetArrayList"><span class="namespace-wrapper">GetArrayList()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_SetConnection" name="method_SetConnection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">SetConnection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">SetConnection(\PDO  <span class="argument">$pdo</span>) </pre>
+                <p><em>Set an underlying mysql PDO object</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\PDO</td>
+                                <td>$pdo </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_SetErrorMode" name="method_SetErrorMode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">SetErrorMode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">SetErrorMode(integer  <span class="argument">$mode = \PDO::ERRMODE_SILENT</span>) </pre>
+                <p><em>Sets error mode. based on this settings you can control whether to display error messages for debugging or
+just silently ignore the error and pretend no data was returned.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$mode </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em>Protected constructor</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">MySqlPDO.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/MySqlPDO.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on October 23rd, 2014 at 11:58.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

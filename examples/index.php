@@ -1,3 +1,5 @@
 <?php 
     
-    // to be developed
+    echo 'Coming soon ...';
+    exit();
+    
